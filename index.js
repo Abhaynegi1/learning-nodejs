@@ -1,14 +1,39 @@
-const http = require("http");
-const fs = require("fs");
-const url = require("url");
-const myServer = http.createServer((req, res) => {
-    const myurl = url.parse(req.url , true);
-    console.log(myurl);
-    const log = `${Date.now()} : New Req received \n`;
-    fs.appendFile("log.txt" , log , (err ,dat) => {
-        res.end(`Your joining time is ${Date.now()} `);
-    })
-    
-} )
+const express = require("express"); // Using the Express framework
 
-myServer.listen(8000 , ()=> {console.log("server working ");});
+const app = express();  // Initializing the Express app
+
+// Route for the home page
+app.get("/", (req, res) => {
+    return res.send("Hello, this is the homepage");
+});
+
+// Route for the about page
+app.get("/about", (req, res) => {
+    return res.send(`Hello ${req.query.name}`);
+});
+
+// Route for search functionality
+app.get("/search", (req, res) => {
+    const searchQuery = req.query.search_query;
+    return res.send(`You searched for: ${searchQuery}`);
+});
+
+// Route for signup (GET and POST)
+app.get("/signup", (req, res) => {
+    return res.send("This is a signup form");
+});
+
+app.post("/signup", (req, res) => {
+    // Add your database query or signup logic here
+    return res.send("Signup Success");
+});
+
+// Handle 404 for undefined routes
+app.use((req, res) => {
+    res.status(404).send("404 NOT found");
+});
+
+// Start the server
+app.listen(8000, () => {
+    console.log("Server is working ");
+});

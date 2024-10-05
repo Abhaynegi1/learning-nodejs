@@ -1,12 +1,3 @@
-1728056976027 : New Req received 
-1728056976142 : New Req received 
-1728057214009 : New Req received 
-1728057289016 : New Req received 
-1728057289668 : New Req received 
-1728057331986 : New Req received 
-1728057332164 : New Req received 
-1728057332971 : New Req received 
-1728059590676 : New Req received 
-1728059591371 : New Req received 
-1728059666383 : New Req received 
-1728059666510 : New Req received 
+1728132899304 : New request received with URL: /
+1728132899974 : New request received with URL: /favicon.ico
+1728132905158 : New request received with URL: /about
